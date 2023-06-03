@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>貸款試算0.1</title>
+</head>
+
+<body>
+    <h1>貸款利息計算機</h1>
+    <form>
+        <label for="loanAmount">貸款金額</label>
+        <input type="number" name="loanAmount" id="loanAmount">元<br>
+        <label for="interestRate">貸款利率</label>
+        <input type="number" name="interestRate" id="interestRate">年利率<br>
+        <label for="loanTerm">還款週期</label>
+        <select name="loanTerm" id="loanTerm">貸款試算
+            <option value="3">3年</option>
+            <option value="5">5年</option>
+            <option value="7">7年</option>
+            <option value="20">20年</option>
+        </select><br>
+        <label>還款方式</label>
+        <input type="radio" name="replacement" id="PrincipalRepayment">本金攤還
+        <input type="radio" name="replacement" id="AmortizationInterest">本息攤還
+        <br>
+        <button type="button">計算</button>
+    </form>
+</body>
+
+</html>
