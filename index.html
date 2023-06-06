@@ -8,15 +8,18 @@
     <title>貸款試算0.1版</title>
     <style>
         form {
+            text-align: left;
             background-color: antiquewhite;
             padding: 24px;
             border-radius: 12px;
-            width: 50%;
+            width: 500px;
+            margin: 0 auto;
         }
 
         table {
             border-collapse: collapse;
             width: 60%;
+            margin: 24px auto;
         }
 
         th,
@@ -34,6 +37,17 @@
             table {
                 width: 100%;
             }
+
+            form {
+                width: 300px;
+            }
+        }
+
+        #container {
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+
         }
     </style>
 </head>
@@ -59,6 +73,7 @@
             <br>
             <button type="button" onclick="calcTable()">計算</button>
         </form>
+
         <div id="result">
 
         </div>
@@ -81,7 +96,7 @@
         const resultEl = document.querySelector("#result");
 
         console.log(resultEl);
-        resultEl.innerHTML = "<h1>目前結果:</h1>";
+        //resultEl.innerHTML = "<h1>目前結果:</h1>";
 
         function calcTable() {
             // 清空表格內容
@@ -118,6 +133,7 @@
                 loanAmount -= monthRepayment;
             }
 
+            resultEl.innerHTML = `<h2 style="color:blue">總利息支出為:${totalInterest}</h2>`;
 
         }
 
