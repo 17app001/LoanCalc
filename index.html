@@ -71,7 +71,7 @@
             <input type="radio" name="replacement" id="PrincipalRepayment" checked>本金攤還
             <input type="radio" name="replacement" id="AmortizationInterest">本息攤還
             <br>
-            <button type="button" onclick="calcTable()">計算</button>
+            <button type="button" onclick="calcTableB()">計算</button>
         </form>
 
         <div id="result">
@@ -94,11 +94,52 @@
         const InterestRateEl = document.querySelector("#interestRate");
         const LoanTermEl = document.querySelector("#loanTerm");
         const resultEl = document.querySelector("#result");
-
+        const tableData = document.querySelector(".data");
+        const resultTable = document.querySelector("#resultTable");
         console.log(resultEl);
         //resultEl.innerHTML = "<h1>目前結果:</h1>";
 
-        function calcTable() {
+        function calcTableB() {
+            // 獲取輸入框的值
+            let loanAmount = parseFloat(LoanAmountEl.value);
+            let interestRate = parseFloat(InterestRateEl.value);
+            let loanTerm = parseFloat(LoanTermEl.value);
+
+            let proid = loanTerm * 12;
+            let monthRepayment = Math.round(loanAmount / proid);
+            let totalInterest = 0;
+            let tableHtml = `
+                <table>
+                <thead>
+                    <tr>
+                    <th>期別</th>
+                    <th>償還本金</th>
+                    <th>償還利息</th>
+                    <th>償還本利和</th>
+                    <th>貸款餘額</th>
+                    </tr>
+                </thead>
+                <tbody>
+             `;
+
+            for (let i = 0; i < proid; i++) {
+                tableHtml += "<tr>";
+                let interest = Math.round(loanAmount * (interestRate / 100 / 12));
+                totalInterest += interest;
+                tableHtml += `<td>${i + 1}</td>`;
+                tableHtml += `<td>${monthRepayment}</td>`;
+                tableHtml += `<td>${interest}</td>`;
+                tableHtml += `<td>${monthRepayment + interest}</td>`;
+                tableHtml += `<td>${loanAmount - monthRepayment}</td>`;
+                loanAmount -= monthRepayment;
+                tableHtml += "</tr>";
+            }
+            tableHtml += "</tbody></table>";
+            tableHtml = `<h2 style="color:blue">總利息支出為:${totalInterest}</h2>` + tableHtml;
+            resultEl.innerHTML += tableHtml;
+        }
+
+        function calcTableA() {
             // 清空表格內容
             while (resultTable.rows.length > 1) {
                 resultTable.deleteRow(1);
