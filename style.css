@@ -1,0 +1,40 @@
+form {
+    background-color: antiquewhite;
+    padding: 24px;
+    border-radius: 12px;
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+th {
+    background-color: blanchedalmond;
+}
+
+td {
+    background-color: aqua;
+}
+
+th,
+td {
+    border: 1px solid black;
+}
+
+#container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    margin: 24px auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+@media screen and (max-width:768px) {
+    table {
+        width: 100%;
+    }
+}
