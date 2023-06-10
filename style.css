@@ -33,6 +33,18 @@ table {
     border-collapse: collapse;
 }
 
+#result {
+    margin-top: 24px;
+    background-color: blue;
+    color: white;
+}
+
+#yearLoanTerm {
+    width: 150px;
+}
+
+
+
 @media screen and (max-width:768px) {
     table {
         width: 100%;
